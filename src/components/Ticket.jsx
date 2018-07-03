@@ -4,26 +4,34 @@ import Moment from 'moment'
 
 
 function Ticket(props){
-  return (
+  const ticketInformation =
     <div>
       <h3>{props.location} - {props.names}</h3>
-      <h4>{displayTimeOpen(props.timeOpen)} ago</h4>
+      <h4>{props.formattedWaitTime}</h4>
       <p><em>{props.issue}</em></p>
       <hr/>
     </div>
-  )
+  if (props.currentRouterPath === '/admin'){
+    return (
+      <div onClick={() => {alert('hey, you just clicked the ticket belonging to ' + props.names)}}>
+        {ticketInformation}
+      </div>
+    )
+  } else {
+    return (
+      <div>
+        {ticketInformation}
+      </div>
+    )
+  }
 }
-
-function displayTimeOpen(timeOpen){
-  return timeOpen.from(new Moment(), true)
-}
-
 
 Ticket.propTypes = {
   names: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   issue: PropTypes.string,
-  timeOpen: PropTypes.instanceOf(Moment).isRequired
+  formattedWaitTime: PropTypes.string.isRequired,
+  currentRouterPath: PropTypes.string
 }
 
 export default Ticket
