@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 function TicketDetail(props){
   return (
@@ -15,6 +15,6 @@ function TicketDetail(props){
 
 TicketDetail.propTypes = {
   selectedTicket: PropTypes.object
-};
+}
 
-export default TicketDetail;
+export default TicketDetail
