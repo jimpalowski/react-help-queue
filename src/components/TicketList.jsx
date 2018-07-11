@@ -6,19 +6,19 @@ function TicketList(props){
   return (
     <div>
       <hr/>
-    {Object.keys(props.ticketList).map(function(ticketId) {
-      var ticket = props.ticketList[ticketId];
-      return <Ticket names={ticket.names}
-        location={ticket.location}
-        issue={ticket.issue}
-        formattedWaitTime={ticket.formattedWaitTime}
-        currentRouterPath={props.currentRouterPath}
-        key={ticket.id}
-        onTicketSelection={props.onTicketSelection}
-        ticketId={ticket.id}/>;
+      {Object.keys(props.ticketList).map(function(ticketId) {
+        var ticket = props.ticketList[ticketId]
+        return <Ticket names={ticket.names}
+          location={ticket.location}
+          issue={ticket.issue}
+          formattedWaitTime={ticket.formattedWaitTime}
+          currentRouterPath={props.currentRouterPath}
+          key={ticket.id}
+          onTicketSelection={props.onTicketSelection}
+          ticketId={ticket.id}/>
       })}
     </div>
-  );
+  )
 }
 
 TicketList.propTypes = {
